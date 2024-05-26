@@ -3,57 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda de Electrodomésticos</title>
+    <title>ElectroUG</title>
 
 </head>
 <body>
     <header>
-        <h1>Tienda de Electrodomésticos</h1>
-        <nav>
-            <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Productos</a></li>
-                <li><a href="#">Contacto</a></li>
-            </ul>
-        </nav>
+        <div id="tope">
+            <h1>ElectroUG</h1>
+            <button class="btn btn-primary me-md-2" type="button"> <i class="bi bi-person-square"></i> Acceder </button>
+        </div>
+        <app-cabecera></app-cabecera>
     </header>
 
     <main>
-        <section>
-            <h2>Productos Destacados</h2>
-            <div class="product">
-                <img src="producto1.jpg" alt="Producto 1">
-                <h3>Producto 1</h3>
-                <p>Precio: $99.99</p>
-                <button>Agregar al Carrito</button>
-            </div>
-            <div class="product">
-                <img src="producto2.jpg" alt="Producto 2">
-                <h3>Producto 2</h3>
-                <p>Precio: $149.99</p>
-                <button>Agregar al Carrito</button>
-            </div>
-        </section>
-
-        <section>
-            <h2>Contacto</h2>
-            <form>
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" required>
-
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-
-                <label for="mensaje">Mensaje:</label>
-                <textarea id="mensaje" name="mensaje" required></textarea>
-
-                <button type="submit">Enviar</button>
-            </form>
-        </section>
+        <router-outlet></router-outlet>
     </main>
 
     <footer>
-        <p>&copy; 2022 Tienda de Electrodomésticos. Todos los derechos reservados.</p>
+        <p>&copy; 2024 Grupo #8 . Todos los derechos reservados.</p>
     </footer>
 </body>
 </html>

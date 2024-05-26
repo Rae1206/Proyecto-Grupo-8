@@ -1,0 +1,10 @@
+.seccionesProducto{
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    gap: 1px; 
+}
+.img-producto{
+    width: 100%;
+    object-fit: cover;
+}

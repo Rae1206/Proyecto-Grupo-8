@@ -1,0 +1,14 @@
+.carousel slide carousel-fade {
+    max-width: 600px; /* Define el ancho máximo del carrusel */
+    margin: 0 auto; /* Centra el carrusel horizontalmente */
+  }
+  
+  .carousel-item {
+    height: 535px;
+    width: 1349px; /* Define la altura de cada diapositiva del carrusel */
+  }
+  .d-block w-100 {
+    width: 100%; /* Ajusta automáticamente el ancho de la imagen al contenedor */
+  height: 100%; /* Ajusta automáticamente la altura de la imagen al contenedor */
+  object-fit: cover; /* Ajusta la imagen para que cubra todo el contenedor manteniendo la relación de aspecto */
+  }
