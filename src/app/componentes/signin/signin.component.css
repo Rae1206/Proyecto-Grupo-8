@@ -1,0 +1,31 @@
+
+.signinForm{
+    padding-top: 8%;
+    padding-bottom: 5%;
+    display: flex;
+    text-align: left;
+    justify-content: center;
+}
+form{
+    width: 30%;
+    label{
+        color: #A7F2BA;
+    };
+}
+h2{
+    color: #2BD9A8;
+}
+.btn-primary{
+    background-color: #2BD9A8;
+    border: none;
+    color: #302D40;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: box-shadow 0.3s ease-in-out;
+}

@@ -1,11 +1,15 @@
 .seccionesProducto{
     display: flex; 
+    padding: 10px;
     justify-content: space-between; 
     align-items: center; 
     gap: 1px; 
 }
+.product{
+   max-width: 400px;
+}
 .img-producto{
-    width: 100%;
+    width: 90%;
     object-fit: cover;
 }
 button{
@@ -23,6 +27,7 @@ button{
   transition: box-shadow 0.3s ease-in-out; /* Transición para el efecto de sombra */
 }
 h2{
+    padding: 10px;
     color: #2BD9A8; 
 }
 h3{
