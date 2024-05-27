@@ -8,3 +8,26 @@
     width: 100%;
     object-fit: cover;
 }
+button{
+  background-color: #2BD9A8; /* Color de fondo */
+  border: none; /* Sin borde */
+  color: #302D40; /* Color del texto */
+  padding: 15px 32px; /* Relleno */
+  text-align: center; /* Alineación del texto */
+  text-decoration: none; /* Sin subrayado */
+  display: inline-block; /* Mostrar en línea */
+  font-size: 16px; /* Tamaño de fuente */
+  margin: 4px 2px; /* Margen */
+  cursor: pointer; /* Cambia el cursor al pasar por encima */
+  border-radius: 12px; /* Bordes redondeados */
+  transition: box-shadow 0.3s ease-in-out; /* Transición para el efecto de sombra */
+}
+h2{
+    color: #2BD9A8; 
+}
+h3{
+    color: #2BD9A8; 
+}
+p{
+    color: #A7F2BA; 
+}

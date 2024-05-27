@@ -2,5 +2,38 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: #0D0D0D;
 }
-  
+h1{
+    margin-left: 20px;
+    color: #2BD9A8
+}
+.btn-primary {
+    background-color: #2BD9A8;
+    color: #302D40;
+    border-color: #A7F2BA;
+}
+html, body {
+    background-color: #1a1920;
+    font-family: 'Roboto slab', sans-serif ;
+}
+/* Esto aplica a toda la barra de desplazamiento */
+::-webkit-scrollbar {
+    width: 10px; /* Ancho de la barra de desplazamiento */
+}
+
+/* Esto aplica al fondo de la barra de desplazamiento */
+::-webkit-scrollbar-track {
+    background: #1a1920; /* Color de fondo */
+}
+
+/* Esto aplica a la barra de desplazamiento en sí */
+::-webkit-scrollbar-thumb {
+    background: #2BD9A8; /* Color de la barra de desplazamiento */
+    border-radius: 5px; /* Redondeo de las esquinas */
+}
+
+/* Esto aplica a la barra de desplazamiento cuando se pasa el mouse por encima */
+::-webkit-scrollbar-thumb:hover {
+    background: #A7F2BA; /* Color de la barra de desplazamiento al pasar el mouse */
+}

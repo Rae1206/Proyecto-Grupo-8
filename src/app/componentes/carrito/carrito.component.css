@@ -1,0 +1,83 @@
+h2{
+    color: #2BD9A8; 
+}
+h4{
+    color: #2BD9A8; 
+}
+p{
+    color: #A7F2BA; 
+}
+h3{
+    color: #A7F2BA; 
+}
+.cart-header{
+    display: flex;
+            justify-content: space-between; /* Distribuye los elementos a los extremos */
+            align-items: center;
+            padding-top: 20px;
+            margin-left: 150px;
+            margin-right: 150px;
+}
+.container-cart{
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction:column-reverse;
+    flex-wrap: wrap;
+}
+.cart-item{
+    display: flex;
+    align-items: center;
+    max-height: 240px;
+}
+img{
+    max-height: 300px;
+    max-width: 300px;
+}
+a.custom-link {
+    text-decoration: none; /* Elimina el subrayado */
+    color: #2BD9A8; /* Color del enlace */
+    padding: 10px 15px; /* Espaciado interno */
+    border: 2px solid #A7F2BA; /* Borde */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s, color 0.3s; /* Transición suave */
+}
+
+a.custom-link:hover {
+    background-color: #2BD9A8; /* Fondo al pasar el cursor */
+    color: #0F4037; /* Color del texto al pasar el cursor */
+}
+
+a.custom-link:active {
+    background-color: #2BD9A8; /* Fondo al hacer clic */
+    border-color: #A7F2BA; /* Borde al hacer clic */
+}
+
+a.custom-link:focus {
+    outline: none; /* Elimina el borde predeterminado */
+    box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.5); /* Sombra para indicar foco */
+}
+button{
+    background-color: #2BD9A8; /* Color de fondo */
+    border: none; /* Sin borde */
+    color: #302D40; /* Color del texto */
+    padding: 15px 32px; /* Relleno */
+    text-align: center; /* Alineación del texto */
+    text-decoration: none; /* Sin subrayado */
+    display: inline-block; /* Mostrar en línea */
+    font-size: 16px; /* Tamaño de fuente */
+    margin: 4px 2px; /* Margen */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    border-radius: 12px; /* Bordes redondeados */
+    transition: box-shadow 0.3s ease-in-out; /* Transición para el efecto de sombra */
+
+  }
+  .cart-summary{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px ;
+    margin-top: 20px;
+    border-top: 1px solid #2BD9A8;
+  }

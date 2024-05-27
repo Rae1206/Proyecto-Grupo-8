@@ -3,20 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poetsen+One&family=Roboto+Slab:wght@100..900&family=Roboto:ital,
+wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <title>ElectroUG</title>
-
 </head>
 <body>
     <header>
         <div id="tope">
             <h1>ElectroUG</h1>
-            <button class="btn btn-primary me-md-2" type="button"> <i class="bi bi-person-square"></i> Acceder </button>
+            <div class="inciar">
+                <button  class="btn btn-primary me-md-2" type="button" routerlink="/signin"> <i class="bi bi-person-square" ></i> Acceder </button>
+                <button  class="btn btn-primary me-md-2" type="button" routerlink="/register"> <i class="bi bi-person-plus" ></i> Registrarse </button>
+            </div>
         </div>
         <app-cabecera></app-cabecera>
     </header>
-
     <main>
-        <router-outlet></router-outlet>
+        <router-outlet></router-outlet>  
     </main>
 
     <footer>

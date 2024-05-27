@@ -1,0 +1,8 @@
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.show{
+    color : #A7F2BA;    
+    margin-left: 20px;
+}
+.btn-light{
+background-color: #A7F2BA;
+margin-right: 10px;
+}
