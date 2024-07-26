@@ -1,14 +1,21 @@
-import { Component, ViewChild } from '@angular/core';
-import { RouterLink, RouterModule, RouterOutlet } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 import { CabeceraComponent } from './componentes/cabecera/cabecera.component';
-import { ProductosComponent } from './componentes/productos/productos.component';
+import { PiePaginaComponent } from './pie-pagina/pie-pagina.component';
+import { UserService } from './servicios/user.service'; // Ajusta la ruta según sea necesario
+
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,RouterModule,CabeceraComponent,ProductosComponent,RouterLink],
+  imports: [RouterOutlet, CabeceraComponent, PiePaginaComponent, HttpClientModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent  {
   title = 'ProyectoGrupo8';
+
+  constructor(private userService: UserService, private router: Router) {}
+
 }
