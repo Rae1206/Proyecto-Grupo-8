@@ -1,12 +1,12 @@
 export interface usuario
 {
-    Name : string,
-    LastName : string,
-    DateOfBirth : Date,
-    Gender : string,
-    Email : string,
-    Password : string,
-    Role : string,
-    IsDisable : boolean;
+    name : string,
+    lastName : string,
+    dateOfBirth : Date,
+    gender : string,
+    email : string,
+    password : string,
+    role : string,
+    isDisable : boolean;
 
 }

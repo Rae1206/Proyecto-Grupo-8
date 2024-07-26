@@ -1,31 +1,75 @@
-
-.registerForm{
-    padding-top: 8%;
-    padding-bottom: 5%;
+.registerForm {
+    padding: 5% 0;
     display: flex;
-    text-align: left;
     justify-content: center;
+    background: linear-gradient(to right, #f2f2f2, #e0e0e0); /* Gradiente suave de fondo */
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-form{
-    width: 30%;
-    label{
-        color: #A7F2BA;
-    };
+
+form {
+    width: 90%;
+    max-width: 500px; /* Máximo ancho del formulario */
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-h2{
-    color: #2BD9A8;
+
+h2 {
+    color: #2BD9A8; /* Color de encabezado */
+    text-align: center;
+    margin-bottom: 20px;
 }
-.btn-primary{
+
+label {
+    color: #4A4A4A;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"] {
+    border: 2px solid #2BD9A8;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+select {
+    border: 2px solid #2BD9A8;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form-check {
+    margin-bottom: 20px;
+}
+
+.form-check-label {
+    color: #4A4A4A;
+}
+
+.btn-primary {
     background-color: #2BD9A8;
     border: none;
-    color: #302D40;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
+    color: #ffffff;
+    padding: 12px 20px;
     font-size: 16px;
-    margin: 4px 2px;
     cursor: pointer;
-    border-radius: 12px;
-    transition: box-shadow 0.3s ease-in-out;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease-in-out;
+    width: 100%;
+    text-align: center;
+}
+
+.btn-primary:hover {
+    background-color: #23a688;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }

@@ -1,30 +1,40 @@
 <div class="registerForm">
-    <form>
-        <h2>Registro de Usuario</h2>
-        <div class="mb-3">
-            <label for="username" class="form-label">Usuario:</label>
-            <input type="username" class="form-control" id="username">
-          </div>
-        <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">Email:</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-        </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">Contraseña:</label>
-          <input type="password" class="form-control" id="exampleInputPassword1">
-        </div>
-        <div>
-          <label for="rol">Elegir su rol:</label>
-          <select id="rol">
-            <option value="" disabled selected></option>
-            <option value="RolGerente">Gerente</option>
-            <option value="RolCliente">Cliente</option>
-          </select>
-        </div>
-        <div class="mb-3 form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" for="exampleCheck1">Check me out</label>
-        </div>
-        <button type="submit" class="btn btn-primary" >Submit</button>
-      </form>
+  <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
+    <h2>Registro de Usuario</h2>
+
+    <div class="mb-3">
+      <label for="name" class="form-label">Nombre:</label>
+      <input type="text" class="form-control" id="name" [(ngModel)]="name" name="name" required>
     </div>
+    
+    <div class="mb-3">
+      <label for="lastName" class="form-label">Apellido:</label>
+      <input type="text" class="form-control" id="lastName" [(ngModel)]="lastName" name="lastName" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email:</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" [(ngModel)]="email" name="email" aria-describedby="emailHelp" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Contraseña:</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" [(ngModel)]="password" name="password" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="gender" class="form-label">Género:</label>
+      <select class="form-control" id="gender" [(ngModel)]="gender" name="gender" required>
+        <option value="male">Masculino</option>
+        <option value="female">Femenino</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="dob" class="form-label">Fecha de Nacimiento:</label>
+      <input type="date" class="form-control" id="dob" [(ngModel)]="dateOfBirth" name="dateOfBirth" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Registrar</button>
+  </form>
+</div>

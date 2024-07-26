@@ -1,22 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import { AppComponent } from '../../app.component';
 import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common'; 
 import { AuthServiceService } from '../../servicios/auth-service.service';
+import { usuario } from '../../Interfaces/usuario';
 
 @Component({
   selector: 'app-cabecera',
   standalone: true,
-  imports: [AppComponent,RouterOutlet,RouterModule,CommonModule],
+  imports: [RouterOutlet, RouterModule, CommonModule],
   templateUrl: './cabecera.component.html',
-  styleUrl: './cabecera.component.css'
+  styleUrls: ['./cabecera.component.css']
 })
 export class CabeceraComponent implements OnInit {
   isLoggedIn: boolean = false;
+  user: usuario | null = null; // Cambiado a 'usuario | null' para manejar el caso donde no hay usuario
 
   constructor(private authService: AuthServiceService, private router: Router) {}
 
   ngOnInit() {
+    this.authService.user$.subscribe(user => {
+      this.user = user;
+    });
+
     this.authService.isLoggedIn$.subscribe(status => {
       this.isLoggedIn = status;
     });
@@ -27,4 +32,3 @@ export class CabeceraComponent implements OnInit {
     this.router.navigate(['/signin']);
   }
 }
-

@@ -23,4 +23,20 @@ export class UserService {
     return this.http.post<usuario>(`${this.apiUrl}/email/password`, body);
   }
 
+  register(email: string, password: string,
+           name: string, lastName: string, 
+           dateOfBirth: Date, gender: string)
+ {
+            const body = {
+              email: email,
+              password: password,
+              name: name,
+              lastName: lastName,
+              dateOfBirth: dateOfBirth,
+              gender: gender
+            };
+    // Usar POST para enviar la solicitud
+    return this.http.post<usuario>(`${this.apiUrl}`, body);
+}
+
 }
