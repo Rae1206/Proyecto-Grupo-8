@@ -1,8 +1,65 @@
-.navbar-nav .nav-link.active, .navbar-nav .nav-link.show{
-    color : #A7F2BA;    
-    margin-left: 20px;
+.navbar {
+    background-color: #0D0D0D; /* Color de fondo oscuro para el navbar */
 }
-.btn-light{
-background-color: #A7F2BA;
-margin-right: 10px;
+
+.navbar-brand {
+    color: #ffffff; /* Color del texto de la marca */
+    font-weight: bold; /* Texto en negrita */
+    font-size: 1.5rem; /* Tamaño del texto */
+}
+
+.navbar-nav .nav-link {
+    color: #A7F2BA; /* Color del texto de los enlaces */
+    margin-left: 15px; /* Espaciado entre los enlaces */
+    font-size: 1rem; /* Tamaño del texto de los enlaces */
+}
+
+.navbar-nav .nav-link.active, 
+.navbar-nav .nav-link.show {
+    color: #A7F2BA; /* Color del enlace activo */
+}
+
+.btn-primary {
+    background-color: #2BD9A8; /* Color de fondo del botón */
+    border: none; /* Sin borde */
+    color: #ffffff; /* Color del texto del botón */
+    padding: 8px 16px; /* Espaciado interno del botón */
+    font-size: 14px; /* Tamaño del texto del botón */
+    margin: 4px 2px; /* Espaciado del botón */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s ease; /* Transición suave */
+}
+
+.btn-primary:hover {
+    background-color: #1f9c6c; /* Color al pasar el mouse */
+}
+
+.btn-danger {
+    background-color: #d9534f; /* Color de fondo del botón de logout */
+    border: none; /* Sin borde */
+    color: #ffffff; /* Color del texto del botón */
+    padding: 8px 16px; /* Espaciado interno del botón */
+    font-size: 14px; /* Tamaño del texto del botón */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s ease; /* Transición suave */
+}
+
+.btn-danger:hover {
+    background-color: #c9302c; /* Color al pasar el mouse */
+}
+
+.user-info {
+    color: #ffffff; /* Color del texto del usuario */
+    margin-right: 15px; /* Espaciado entre el nombre y el botón de logout */
+}
+
+#rol {
+    color: #A7F2BA; /* Color del rol */
+    font-weight: bold; /* Texto en negrita */
+}
+
+@media (max-width: 992px) {
+    .navbar-nav {
+        text-align: center; /* Centra el texto en pantallas pequeñas */
+    }
 }
