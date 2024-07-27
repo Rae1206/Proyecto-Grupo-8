@@ -19,12 +19,12 @@ export class RegisterComponent {
   lastName: string = '';
   dateOfBirth: Date = new Date(); // Cambiado a Date | null
   gender : string = '';
-
+  role : string = 'Cliente';
   title = 'ProyectoGrupo8';
 
   onSubmit() {
     console.log("user", this.email, this.password, this.dateOfBirth);
-    this.userService.register(this.email, this.password,this.name,this.lastName,this.dateOfBirth,this.gender).subscribe(
+    this.userService.register(this.email, this.password,this.name,this.lastName,this.dateOfBirth,this.gender,this.role).subscribe(
       (user: usuario) => {
         console.log('User:', user);
         // Redirecciona a la página inicial
