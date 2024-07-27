@@ -1,0 +1,119 @@
+<!-- Lista de Gerentes -->
+<div class="client-table">
+    <h2>Lista de Gerentes</h2>
+    <button class="btn btn-primary btn-add" (click)="openCreateModal()">+ Crear Gerente</button>
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Email</th>
+            <th>Género</th>
+            <th>Rol</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let gerente of gerentes">
+            <td>{{ gerente.name }}</td>
+            <td>{{ gerente.lastName }}</td>
+            <td>{{ gerente.email }}</td>
+            <td>{{ gerente.gender }}</td>
+            <td>{{ gerente.role }}</td>
+            <td>
+              <button class="btn btn-warning btn-sm" (click)="openEditModal(gerente)">Editar</button>
+              <button *ngIf="gerente.id" class="btn btn-danger btn-sm" (click)="deleteGerente(gerente.id)">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  <!-- Modal para Editar Gerente -->
+  <ng-template #editModal>
+    <div class="modal-header">
+      <h2>Editar Gerente</h2>
+      <button type="button" class="btn-close" aria-label="Close" (click)="closeEditModal()"></button>
+    </div>
+    <div class="modal-body">
+      <form #editForm="ngForm" (ngSubmit)="updateGerente()">
+        <div class="form-group">
+          <label for="name">Nombre:</label>
+          <input type="text" class="form-control" id="name" [(ngModel)]="selectedGerente.name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Apellido:</label>
+          <input type="text" class="form-control" id="lastName" [(ngModel)]="selectedGerente.lastName" name="lastName" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" class="form-control" id="email" [(ngModel)]="selectedGerente.email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="gender">Género:</label>
+          <select class="form-control" id="gender" [(ngModel)]="selectedGerente.gender" name="gender" required>
+            <option value="Masculino">Masculino</option>
+            <option value="Femenino">Femenino</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="dateOfBirth">Fecha de Nacimiento:</label>
+          <input type="date" class="form-control" id="dateOfBirth" [value]="formatDate(selectedGerente.dateOfBirth)" (change)="updateDateOfBirth($event)" name="dateOfBirth" required>
+        </div>
+        <div class="form-group">
+          <label for="role">Rol:</label>
+          <input disabled type="text" class="form-control" id="role" [(ngModel)]="selectedGerente.role" name="role" required>
+        </div>
+        <div class="form-buttons">
+          <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+          <button type="button" class="btn btn-secondary" (click)="closeEditModal()">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </ng-template>
+  
+  <!-- Modal para Crear Gerente -->
+  <ng-template #createModal>
+    <div class="modal-header">
+      <h2>Crear Gerente</h2>
+      <button type="button" class="btn-close" aria-label="Close" (click)="closeCreateModal()"></button>
+    </div>
+    <div class="modal-body">
+      <form #createForm="ngForm" (ngSubmit)="createGerente()">
+        <div class="form-group">
+          <label for="name">Nombre:</label>
+          <input type="text" class="form-control" id="name" [(ngModel)]="newGerente.name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Apellido:</label>
+          <input type="text" class="form-control" id="lastName" [(ngModel)]="newGerente.lastName" name="lastName" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" class="form-control" id="email" [(ngModel)]="newGerente.email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="gender">Género:</label>
+          <select class="form-control" id="gender" [(ngModel)]="newGerente.gender" name="gender" required>
+            <option value="Masculino">Masculino</option>
+            <option value="Femenino">Femenino</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="dateOfBirth">Fecha de Nacimiento:</label>
+          <input type="date" class="form-control" id="dateOfBirth" [(ngModel)]="newGerente.dateOfBirth" name="dateOfBirth" required>
+        </div>
+        <div class="form-group">
+          <label for="role">Rol:</label>
+          <input type="text" class="form-control" id="role" [(ngModel)]="newGerente.role" name="role" value="Gerente" disabled required>
+        </div>
+        <div class="form-buttons">
+          <button type="submit" class="btn btn-primary">Crear Gerente</button>
+          <button type="button" class="btn btn-secondary" (click)="closeCreateModal()">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </ng-template>
+  
