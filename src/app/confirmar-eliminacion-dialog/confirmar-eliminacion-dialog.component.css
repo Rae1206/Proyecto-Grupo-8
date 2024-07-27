@@ -1,0 +1,30 @@
+h1[mat-dialog-title] {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+    padding-bottom: 10px;
+  }
+  
+  div[mat-dialog-content] {
+    font-size: 16px;
+    margin: 10px 0;
+  }
+  
+  div[mat-dialog-actions] {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+  }
+  
+  button[mat-button] {
+    margin-left: 10px;
+  }
+  
+  button[mat-button]:first-child {
+    color: #555; /* Color para el botón de cancelar */
+  }
+  
+  button[mat-button]:last-child {
+    color: #f44336; /* Color para el botón de eliminar */
+  }
+  
