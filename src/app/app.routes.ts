@@ -11,6 +11,7 @@ import { SigninComponent } from './componentes/signin/signin.component';
 import { register } from 'module';
 import { RegisterComponent } from './componentes/register/register.component';
 import { GestionClientesComponent } from './gestion-clientes/gestion-clientes.component';
+import { GestionGerentesComponent } from './gestion-gerentes/gestion-gerentes.component';
 
 
 export const routes: Routes = [
@@ -20,7 +21,8 @@ export const routes: Routes = [
 { path: 'carrito', component: CarritoComponent},
 { path: 'signin', component:SigninComponent},
 {path:'register',component:RegisterComponent},
-{path:'gestion-clientes',component:GestionClientesComponent}
+{path:'gestion-clientes',component:GestionClientesComponent},
+{path:'gestion-gerentes',component:GestionGerentesComponent}
 
 ];
 @NgModule({
