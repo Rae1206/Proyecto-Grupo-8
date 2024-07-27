@@ -1,0 +1,25 @@
+<!-- src/app/components/lista-pedidos/lista-pedidos.component.html -->
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Lista de Pedidos Enviados</h2>
+  <div *ngIf="pedidos.length > 0; else noPedidos">
+    <ul class="list-group">
+      <li *ngFor="let pedido of pedidos" class="list-group-item">
+        <h5>Pedido ID: {{ pedido.id }}</h5>
+        <p>Fecha: {{ pedido.fechaPedido | date:'short' }}</p>
+        <p>Usuario ID: {{ pedido.carrito.usuarioId }}</p>
+        <ul class="list-group mt-3">
+          <li *ngFor="let producto of pedido.carrito.productos" class="list-group-item d-flex justify-content-between align-items-center">
+            {{ producto.nombre }}
+            <span class="badge bg-primary rounded-pill">Cantidad: {{ producto.cantidad }}</span>
+            <span class="badge bg-success rounded-pill">Precio: {{ producto.precio | currency }}</span>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <ng-template #noPedidos>
+    <div class="alert alert-info text-center" role="alert">
+      No hay pedidos enviados.
+    </div>
+  </ng-template>
+</div>

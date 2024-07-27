@@ -7,15 +7,18 @@ import { PiePaginaComponent } from './pie-pagina/pie-pagina.component';
 import { UserService } from './servicios/user.service'; // Ajusta la ruta según sea necesario
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button'; // Si usas botones
-
+import { CommonModule } from '@angular/common'; 
+import { combineLatest } from 'rxjs';
+import { PedidoService } from './servicios/pedidoService.service';
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, CabeceraComponent, PiePaginaComponent, HttpClientModule
-    ,MatDialogModule,MatButtonModule
+    ,MatDialogModule,MatButtonModule,CommonModule
   ],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers:[PedidoService]
 })
 export class AppComponent  {
   title = 'ProyectoGrupo8';
