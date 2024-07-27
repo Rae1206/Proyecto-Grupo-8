@@ -1,5 +1,6 @@
 export interface usuario
 {
+    id: number | null;
     name : string,
     lastName : string,
     dateOfBirth : Date,
