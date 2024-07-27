@@ -1,0 +1,75 @@
+<!-- Lista de Clientes -->
+<div class="client-table">
+    <h2>Lista de Clientes</h2>
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Email</th>
+            <th>Género</th>
+            <th>Rol</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users">
+            <td>{{ user.name }}</td>
+            <td>{{ user.lastName }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.gender }}</td>
+            <td>{{ user.role }}</td>
+            <td>
+              <button class="btn btn-warning btn-sm" (click)="openEditModal(user)">Editar</button>
+              <button *ngIf="user.id" class="btn btn-danger btn-sm" (click)="deleteUser(user.id)">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+<!-- Modal para Editar Usuario -->
+<ng-template #editModal>
+    <div class="modal-header">
+      <h2>Editar Usuario</h2>
+      <button type="button" class="btn-close" aria-label="Close" (click)="closeEditModal()"></button>
+    </div>
+    <div class="modal-body">
+      <form #editForm="ngForm" (ngSubmit)="updateUser()">
+        <div class="form-group">
+          <label for="name">Nombre:</label>
+          <input type="text" class="form-control" id="name" [(ngModel)]="selectedUser.name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Apellido:</label>
+          <input type="text" class="form-control" id="lastName" [(ngModel)]="selectedUser.lastName" name="lastName" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" class="form-control" id="email" [(ngModel)]="selectedUser.email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="gender">Género:</label>
+          <select class="form-control" id="gender" [(ngModel)]="selectedUser.gender" name="gender" required>
+            <option value="Masculino">Masculino</option>
+            <option value="Femenino">Femenino</option>
+          </select>
+        </div>
+        <div class="form-group">
+            <label for="dateOfBirth">Fecha de Nacimiento:</label>
+            <input type="date" class="form-control" id="dateOfBirth" [value]="formatDate(selectedUser.dateOfBirth)" (change)="updateDateOfBirth($event)" name="dateOfBirth" required>
+        </div>
+        <div class="form-group">
+          <label for="role">Rol:</label>
+          <input disabled type="text" class="form-control" id="role" [(ngModel)]="selectedUser.role" name="role" required>
+        </div>
+        <div class="form-buttons">
+          <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+          <button type="button" class="btn btn-secondary" (click)="closeEditModal()">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </ng-template>
+  
