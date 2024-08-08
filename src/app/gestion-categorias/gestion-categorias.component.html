@@ -1,0 +1,78 @@
+<div class="search-bar">
+    <input type="text" [(ngModel)]="searchText" class="form-control" placeholder="Buscar..." />
+    <button class="btn btn-secondary" (click)="searchCategories()">Buscar</button>
+</div>
+<!-- Lista de Categorías -->
+<div class="category-table">
+    <h2>Lista de Categorías</h2>
+    <button class="btn btn-primary btn-add" (click)="openCreateModal()">+ Crear Categoría</button>
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let categoria of categorias">
+            <td>{{ categoria.name }}</td>
+            <td>{{ categoria.description }}</td>
+            <td>
+              <button class="btn btn-warning btn-sm" (click)="openEditModal(categoria)">Editar</button>
+              <button *ngIf="categoria.categoryId" class="btn btn-danger btn-sm" (click)="deleteCategoria(categoria.categoryId)">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>
+
+<!-- Modal para Editar Categoría -->
+<ng-template #editModal>
+    <div class="modal-header">
+      <h2>Editar Categoría</h2>
+      <button type="button" class="btn-close" aria-label="Close" (click)="closeEditModal()"></button>
+    </div>
+    <div class="modal-body">
+      <form #editForm="ngForm" (ngSubmit)="updateCategoria()">
+        <div class="form-group">
+          <label for="name">Nombre:</label>
+          <input type="text" class="form-control" id="name" [(ngModel)]="selectedCategoria.name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="description">Descripción:</label>
+          <input type="text" class="form-control" id="description" [(ngModel)]="selectedCategoria.description" name="description" required>
+        </div>
+        <div class="form-buttons">
+          <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+          <button type="button" class="btn btn-secondary" (click)="closeEditModal()">Cancelar</button>
+        </div>
+      </form>
+    </div>
+</ng-template>
+
+<!-- Modal para Crear Categoría -->
+<ng-template #createModal>
+    <div class="modal-header">
+      <h2>Crear Categoría</h2>
+      <button type="button" class="btn-close" aria-label="Close" (click)="closeCreateModal()"></button>
+    </div>
+    <div class="modal-body">
+      <form #createForm="ngForm" (ngSubmit)="createCategoria()">
+        <div class="form-group">
+          <label for="name">Nombre:</label>
+          <input type="text" class="form-control" id="name" [(ngModel)]="newCategoria.name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="description">Descripción:</label>
+          <input type="text" class="form-control" id="description" [(ngModel)]="newCategoria.description" name="description" required>
+        </div>
+        <div class="form-buttons">
+          <button type="submit" class="btn btn-primary">Crear Categoría</button>
+          <button type="button" class="btn btn-secondary" (click)="closeCreateModal()">Cancelar</button>
+        </div>
+      </form>
+    </div>
+</ng-template>

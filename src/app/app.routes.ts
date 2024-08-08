@@ -13,6 +13,8 @@ import { RegisterComponent } from './componentes/register/register.component';
 import { GestionClientesComponent } from './gestion-clientes/gestion-clientes.component';
 import { GestionGerentesComponent } from './gestion-gerentes/gestion-gerentes.component';
 import { GestionCarritoComponent } from './componentes/gestionCarrito/gestionCarrito.component';
+import { GestionCategoriasComponent } from './gestion-categorias/gestion-categorias.component';
+import { GestionSucursalesComponent } from './gestion-sucursales/gestion-sucursales.component';
 
 
 export const routes: Routes = [
@@ -24,7 +26,9 @@ export const routes: Routes = [
 {path:'register',component:RegisterComponent},
 {path:'gestion-clientes',component:GestionClientesComponent},
 {path:'gestion-gerentes',component:GestionGerentesComponent},
-{path:'gestionCarrito',component:GestionCarritoComponent}
+{path:'gestionCarrito',component:GestionCarritoComponent},
+{path:'gestion-categoria',component:GestionCategoriasComponent},
+{path:'gestion-sucursales',component:GestionSucursalesComponent}
 
 
 ];
