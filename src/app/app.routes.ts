@@ -17,6 +17,8 @@ import { GestionCategoriasComponent } from './gestion-categorias/gestion-categor
 import { GestionSucursalesComponent } from './gestion-sucursales/gestion-sucursales.component';
 import { GestionPatrocinadoresComponent } from './gestion-patrocinadores/gestion-patrocinadores.component';
 import { GestionEventosComponent } from './gestion-eventos/gestion-eventos.component';
+import { GestionProveedoresComponent } from './gestion-proveedores/gestion-proveedores.component';
+import { GestionProductosComponent } from './gestion-productos/gestion-productos.component';
 
 
 export const routes: Routes = [
@@ -32,7 +34,9 @@ export const routes: Routes = [
 {path:'gestion-categoria',component:GestionCategoriasComponent},
 {path:'gestion-sucursales',component:GestionSucursalesComponent},
 {path:'gestion-patrocinadores',component:GestionPatrocinadoresComponent},
-{path:'gestion-eventos',component:GestionEventosComponent}
+{path:'gestion-eventos',component:GestionEventosComponent},
+{path:'gestion-proveedores',component:GestionProveedoresComponent},
+{path:'gestion-productos',component:GestionProductosComponent}
 
 
 ];
