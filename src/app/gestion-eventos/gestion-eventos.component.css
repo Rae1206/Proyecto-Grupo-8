@@ -1,0 +1,46 @@
+.event-management-container {
+    padding: 20px;
+}
+
+.event-list {
+    margin-top: 20px;
+}
+
+.table {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.table th, .table td {
+    text-align: left;
+    padding: 8px;
+}
+
+.modal-header, .modal-body {
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+}
+
+.btn-primary, .btn-warning, .btn-danger {
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.btn-close {
+    float: right;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}

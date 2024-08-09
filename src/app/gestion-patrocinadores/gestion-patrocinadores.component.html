@@ -1,0 +1,89 @@
+<div class="patrocinadores-container">
+    <h2>Gestión de Patrocinadores</h2>
+    <button class="btn btn-primary" (click)="openCreateModal()">+ Crear Patrocinador</button>
+  
+    <div class="patrocinadores-list">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>URL del Sitio Web</th>
+            <th>Email de Contacto</th>
+            <th>Fecha de Creación</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let sponsor of sponsors">
+            <td>{{ sponsor.sponsorId }}</td>
+            <td>{{ sponsor.sponsorName }}</td>
+            <td>{{ sponsor.websiteUrl }}</td>
+            <td>{{ sponsor.contactEmail }}</td>
+            <td>{{ sponsor.creationSponsor | date: 'yyyy-MM-dd' }}</td>
+            <td>
+              <button class="btn btn-warning" (click)="openEditModal(sponsor)">Editar</button>
+              <button class="btn btn-danger" (click)="deleteSponsor(sponsor.sponsorId)">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  <!-- Modal para Crear Nuevo Patrocinador -->
+  <ng-template #createModal let-close="close">
+    <div class="modal-header">
+      <h5 class="modal-title">Crear Nuevo Patrocinador</h5>
+      <button type="button" class="btn-close" aria-label="Close" (click)="close()"></button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="createForm" (ngSubmit)="createSponsor()">
+        <div class="form-group">
+          <label for="name">Nombre:</label>
+          <input type="text" class="form-control" id="name" formControlName="sponsorName">
+        </div>
+        <div class="form-group">
+          <label for="website">URL del Sitio Web:</label>
+          <input type="text" class="form-control" id="website" formControlName="websiteUrl">
+        </div>
+        <div class="form-group">
+          <label for="email">Email de Contacto:</label>
+          <input type="email" class="form-control" id="email" formControlName="contactEmail">
+        </div>
+        <div class="form-buttons">
+          <button type="submit" class="btn btn-primary">Crear</button>
+          <button type="button" class="btn btn-secondary" (click)="closeCreateModal()">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </ng-template>
+  
+  <!-- Modal para Editar Patrocinador -->
+  <ng-template #editModal let-close="close">
+    <div class="modal-header">
+      <h5 class="modal-title">Editar Patrocinador</h5>
+      <button type="button" class="btn-close" aria-label="Close" (click)="closeEditModal()"></button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="editForm" (ngSubmit)="updateSponsor()">
+        <div class="form-group">
+          <label for="name">Nombre:</label>
+          <input type="text" class="form-control" id="name" formControlName="sponsorName">
+        </div>
+        <div class="form-group">
+          <label for="website">URL del Sitio Web:</label>
+          <input type="text" class="form-control" id="website" formControlName="websiteUrl">
+        </div>
+        <div class="form-group">
+          <label for="email">Email de Contacto:</label>
+          <input type="email" class="form-control" id="email" formControlName="contactEmail">
+        </div>
+        <div class="form-buttons">
+          <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+          <button type="button" class="btn btn-secondary" (click)="closeEditModal()">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </ng-template>
+  

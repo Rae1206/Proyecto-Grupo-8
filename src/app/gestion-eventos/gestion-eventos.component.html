@@ -1,0 +1,108 @@
+<div class="event-management-container">
+    <h2>Gestión de Eventos</h2>
+    <button class="btn btn-primary" (click)="openCreateModal()">+ Crear Evento</button>
+
+    <div class="event-list">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre del Evento</th>
+                    <th>Descripción</th>
+                    <th>Fecha de Inicio</th>
+                    <th>Fecha de Fin</th>
+                    <th>Localización</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let event of events">
+                    <td>{{ event.eventId }}</td>
+                    <td>{{ event.eventName }}</td>
+                    <td>{{ event.description }}</td>
+                    <td>{{ event.startDate |date: 'yyyy-MM-dd' }}</td>
+                    <td>{{ event.endDate | date: 'yyyy-MM-dd' }}</td>
+                    <td>{{ event.localization }}</td>
+                    <td>
+                        <button class="btn btn-warning" (click)="openEditModal(event)">Editar</button>
+                        <button class="btn btn-danger" (click)="deleteEvent(event.eventId)">Eliminar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Modal para Crear Nuevo Evento -->
+<ng-template #createModal let-close="close">
+    <div class="modal-header">
+        <h5 class="modal-title">Crear Nuevo Evento</h5>
+        <button type="button" class="btn-close" aria-label="Close" (click)="closeCreateModal()"></button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="createForm" (ngSubmit)="createEvent()">
+        
+            <div class="form-group">
+                <label for="name">Nombre del Evento:</label>
+                <input type="text" class="form-control" id="name" formControlName="eventName">
+            </div>
+            <div class="form-group">
+                <label for="description">Descripción:</label>
+                <textarea class="form-control" id="description" formControlName="description"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="startDate">Fecha de Inicio:</label>
+                <input type="date" class="form-control" id="startDate" formControlName="startDate">
+            </div>
+            <div class="form-group">
+                <label for="endDate">Fecha de Fin:</label>
+                <input type="date" class="form-control" id="endDate" formControlName="endDate">
+            </div>
+            <div class="form-group">
+                <label for="localization">Localización:</label>
+                <input type="text" class="form-control" id="localization" formControlName="localization">
+            </div>
+            <div class="form-buttons">
+                <button type="submit" class="btn btn-primary">Crear</button>
+                <button type="button" class="btn btn-secondary" (click)="closeCreateModal()">Cancelar</button>
+            </div>
+        </form>
+    </div>
+</ng-template>
+
+<!-- Modal para Editar Evento -->
+<ng-template #editModal let-close="close">
+    <div class="modal-header">
+        <h5 class="modal-title">Editar Evento</h5>
+        <button type="button" class="btn-close" aria-label="Close" (click)="closeEditModal()"></button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="editForm" (ngSubmit)="updateEvent()">
+            <div class="form-group">
+                <label for="name">Nombre del Evento:</label>
+                <input type="text" class="form-control" id="name" formControlName="eventName">
+            </div>
+            <div class="form-group">
+                <label for="description">Descripción:</label>
+                <textarea class="form-control" id="description" formControlName="description"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="startDate">Fecha de Inicio:</label>
+                <input type="date" class="form-control" id="startDate" formControlName="startDate">
+            </div>
+            <div class="form-group">
+                <label for="endDate">Fecha de Fin:</label>
+                <input type="date" class="form-control" id="endDate" formControlName="endDate">
+            </div>
+            <div class="form-group">
+                <label for="localization">Localización:</label> <!-- Corrected line -->
+                <input type="text" class="form-control" id="localization" formControlName="localization">
+            </div>
+            <div class="form-buttons">
+                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                <button type="button" class="btn btn-secondary" (click)="closeEditModal()">Cancelar</button>
+            </div>
+        </form>
+    </div>
+</ng-template>
+

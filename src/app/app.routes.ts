@@ -15,6 +15,8 @@ import { GestionGerentesComponent } from './gestion-gerentes/gestion-gerentes.co
 import { GestionCarritoComponent } from './componentes/gestionCarrito/gestionCarrito.component';
 import { GestionCategoriasComponent } from './gestion-categorias/gestion-categorias.component';
 import { GestionSucursalesComponent } from './gestion-sucursales/gestion-sucursales.component';
+import { GestionPatrocinadoresComponent } from './gestion-patrocinadores/gestion-patrocinadores.component';
+import { GestionEventosComponent } from './gestion-eventos/gestion-eventos.component';
 
 
 export const routes: Routes = [
@@ -28,7 +30,9 @@ export const routes: Routes = [
 {path:'gestion-gerentes',component:GestionGerentesComponent},
 {path:'gestionCarrito',component:GestionCarritoComponent},
 {path:'gestion-categoria',component:GestionCategoriasComponent},
-{path:'gestion-sucursales',component:GestionSucursalesComponent}
+{path:'gestion-sucursales',component:GestionSucursalesComponent},
+{path:'gestion-patrocinadores',component:GestionPatrocinadoresComponent},
+{path:'gestion-eventos',component:GestionEventosComponent}
 
 
 ];
