@@ -1,0 +1,110 @@
+<div class="supplier-management-container">
+    <h2>Gestión de Proveedores</h2>
+    <button class="btn btn-primary" (click)="openCreateModal()">+ Crear Proveedor</button>
+
+    <div class="supplier-list">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre Comercial</th>
+                    <th>Razón Social</th>
+                    <th>Nombre de la Empresa</th>
+                    <th>RUC</th>
+                    <th>Teléfono de Empresa</th>
+                    <th>Fecha de Registro</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let supplier of suppliers">
+                    <td>{{ supplier.id }}</td>
+                    <td>{{ supplier.tradeName }}</td>
+                    <td>{{ supplier.businessName }}</td>
+                    <td>{{ supplier.companyName }}</td>
+                    <td>{{ supplier.ruc }}</td>
+                    <td>{{ supplier.companyPhone }}</td>
+                    <td>{{ supplier.dateOfEntry | date: 'yyyy-MM-dd' }}</td>
+                    <td>
+                        <button class="btn btn-warning" (click)="openEditModal(supplier)">Editar</button>
+                        <button class="btn btn-danger" (click)="disableProveedor(supplier.id)">Deshabilitar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Modal for Creating New Supplier -->
+<ng-template #createModal>
+    <div class="modal-header">
+        <h5 class="modal-title">Crear Nuevo Proveedor</h5>
+        <button type="button" class="btn-close" aria-label="Close" (click)="closeCreateModal()"></button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="createForm" (ngSubmit)="createProveedor()">
+            <div class="form-group">
+                <label for="businessName">Razón Social:</label>
+                <input type="text" class="form-control" id="businessName" formControlName="businessName">
+            </div>
+            <div class="form-group">
+                <label for="tradeName">Nombre Comercial:</label>
+                <input type="text" class="form-control" id="tradeName" formControlName="tradeName">
+            </div>
+            <div class="form-group">
+                <label for="companyName">Nombre de la Empresa:</label>
+                <input type="text" class="form-control" id="companyName" formControlName="companyName">
+            </div>
+            <div class="form-group">
+                <label for="ruc">RUC:</label>
+                <input type="text" class="form-control" id="ruc" formControlName="ruc">
+            </div>
+            <div class="form-group">
+                <label for="companyPhone">Teléfono de Empresa:</label>
+                <input type="text" class="form-control" id="companyPhone" formControlName="companyPhone">
+            </div>
+            <div class="form-buttons">
+                <button type="submit" class="btn btn-primary">Crear</button>
+                <button type="button" class="btn btn-secondary" (click)="closeCreateModal()">Cancelar</button>
+            </div>
+        </form>
+    </div>
+</ng-template>
+
+<!-- Modal for Editing Supplier -->
+<ng-template #editModal>
+    <div class="modal-header">
+        <h5 class="modal-title">Editar Proveedor</h5>
+        <button type="button" class="btn-close" aria-label="Close" (click)="closeEditModal()"></button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="editForm" (ngSubmit)="updateProveedor()">
+            <div class="form-group">
+                <label for="businessName">Razón Social:</label>
+                <input type="text" class="form-control" id="businessName" formControlName="businessName">
+            </div>
+            <div class="form-group">
+                <label for="tradeName">Nombre Comercial:</label>
+                <input type="text" class="form-control" id="tradeName" formControlName="tradeName">
+            </div>
+            <div class="form-group">
+                <label for="companyName">Nombre de la Empresa:</label>
+                <input type="text" class="form-control" id="companyName" formControlName="companyName">
+            </div>
+            <div class="form-group">
+                <label for="ruc">RUC:</label>
+                <input type="text" class="form-control" id="ruc" formControlName="ruc">
+            </div>
+            <div class="form-group">
+                <label for="companyPhone">Teléfono de Empresa:</label>
+                <input type="text" class="form-control" id="companyPhone" formControlName="companyPhone">
+            </div>
+            <input type="date" hidden id="dateOfEntry" formControlName="dateOfEntry">
+
+            <div class="form-buttons">
+                <button type="submit" the class="btn btn-primary">Guardar Cambios</button>
+                <button type="button" class="btn btn-secondary" (click)="closeEditModal()">Cancelar</button>
+            </div>
+        </form>
+    </div>
+</ng-template>

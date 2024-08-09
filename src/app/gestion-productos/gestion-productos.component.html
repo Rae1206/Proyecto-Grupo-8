@@ -1,0 +1,147 @@
+<div class="product-management-container">
+    <h2>Gestión de Productos</h2>
+    <button class="btn btn-primary" (click)="openCreateModal()">+ Crear Producto</button>
+
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Imagen</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Categoría</th>
+                    <th>Proveedor</th>
+                    <th>Precio</th>
+                    <th>Stock</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of products">
+                    <td>{{ product.id }}</td>
+                    <td><img [src]="sanitizer.bypassSecurityTrustResourceUrl(product.productImg)" alt="{{ product.name }}" width="50"></td>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.description }}</td>
+                    <td>{{ product.category.name }}</td>
+                    <td>{{ product.supplier.businessName }}</td>
+                    <td>{{ product.price | currency }}</td>
+                    <td>{{ product.stock }}</td>
+                    <td>
+                        <button class="btn btn-warning" (click)="openEditModal(product)" >Editar</button>
+                        <button class="btn btn-danger" (click)="disableProduct(product.id)">Deshabilitar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+   <!-- Modal for Creating New Product -->
+<ng-template #createModal>
+    <div class="modal-header">
+        <h5 class="modal-title">Crear Nuevo Producto</h5>
+        <button type="button" class="btn-close" aria-label="Close" (click)="closeCreateModal()"></button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="productForm" (ngSubmit)="saveProduct()" novalidate>
+            <div class="form-group">
+                <div class="form-group">
+                    <label for="productImg">Imagen del Producto:</label>
+                    <input type="file" (change)="handleFileInput($event)" class="form-control" id="productImg" required>
+                    <img *ngIf="productForm.value.productImg" [src]="sanitizer.bypassSecurityTrustResourceUrl(productForm.value.productImg)" alt="Preview" width="100">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="name">Nombre:</label>
+                <input type="text" class="form-control" id="name" formControlName="name" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Descripción:</label>
+                <textarea class="form-control" id="description" formControlName="description" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="categoryId">Categoría:</label>
+                <select class="form-control" id="categoryId" formControlName="categoryId" required>
+                    <option *ngFor="let category of categories" [value]="category.categoryId">{{ category.name }}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="supplierId">Proveedor:</label>
+                <select class="form-control" id="supplierId" formControlName="supplierId" required>
+                    <option *ngFor="let supplier of suppliers" [value]="supplier.id">{{ supplier.businessName }}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="price">Precio ($):</label>
+                <input type="number" class="form-control" id="price" formControlName="price" step="0.01" required>
+            </div>
+            <div class="form-group">
+                <label for="stock">Stock:</label>
+                <input type="number" class="form-control" id="stock" formControlName="stock" min="0" required>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="isDisabled" formControlName="isDisabled">
+                <label class="form-check-label" for="isDisabled">Deshabilitar Producto</label>
+            </div>
+            <button type="submit" class="btn btn-success" [disabled]="!productForm.valid">Guardar Producto</button>
+        </form>
+    </div>
+</ng-template>
+
+    
+<!-- Modal for Editing Product -->
+<ng-template #editModal let-close="close">
+    <div class="modal-header">
+        <h5 class="modal-title">Editar Producto</h5>
+        <button type="button" class="btn-close" aria-label="Close" (click)="closeEditModal()"></button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="productForm" (ngSubmit)="editProduct()" novalidate>
+            <div class="form-group">
+                <div class="form-group">
+                    <label for="productImg">Imagen del Producto:</label>
+                    <input type="file" (change)="handleFileInput($event)" class="form-control" id="productImg" required>
+                    <img *ngIf="productForm.value.productImg" [src]="sanitizer.bypassSecurityTrustResourceUrl(productForm.value.productImg)" alt="Preview" width="100">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="name">Nombre:</label>
+                <input type="text" class="form-control" id="name" formControlName="name" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Descripción:</label>
+                <textarea class="form-control" id="description" formControlName="description" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="categoryId">Categoría:</label>
+                <select class="form-control" id="categoryId" formControlName="categoryId" required>
+                    <option *ngFor="let category of categories" [value]="category.categoryId">{{ category.name }}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="supplierId">Proveedor:</label>
+                <select class="form-control" id="supplierId" formControlName="supplierId" required>
+                    <option *ngFor="let supplier of suppliers" [value]="supplier.id">{{ supplier.businessName }}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="price">Precio ($):</label>
+                <input type="number" class="form-control" id="price" formControlName="price" step="0.01" required>
+            </div>
+            <div class="form-group">
+                <label for="stock">Stock:</label>
+                <input type="number" class="form-control" id="stock" formControlName="stock" min="0" required>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="isDisabled" formControlName="isDisabled">
+                <label class="form-check-label" for="isDisabled">Deshabilitar Producto</label>
+            </div>
+            <div class="form-buttons">
+                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                <button type="button" class="btn btn-secondary" (click)="closeEditModal()">Cancelar</button>
+            </div>
+        </form>
+    </div>
+</ng-template>
+
+</div>

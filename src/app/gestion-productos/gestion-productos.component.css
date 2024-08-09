@@ -1,0 +1,38 @@
+.modal-content {
+    background-color: #f8f9fa; /* Fondo claro para el modal */
+    border-radius: 0.3rem; /* Bordes redondeados para el modal */
+}
+
+.modal-header, .modal-footer {
+    border-bottom: 1px solid #dee2e6; /* Línea de separación estilizada */
+    background-color: #e9ecef; /* Fondo ligeramente diferente para la cabecera y pie */
+}
+
+.modal-body {
+    padding: 20px; /* Espaciado interno para el cuerpo del modal */
+}
+
+.btn-primary, .btn-secondary, .btn-success, .btn-danger {
+    border-radius: 0.25rem; /* Bordes redondeados para los botones */
+    color: #fff; /* Texto blanco para los botones */
+}
+
+.btn-primary {
+    background-color: #007bff; /* Azul para botón principal */
+}
+
+.btn-secondary {
+    background-color: #6c757d; /* Gris para botón secundario */
+}
+
+.btn-success {
+    background-color: #28a745; /* Verde para botón de éxito */
+}
+
+.btn-danger {
+    background-color: #dc3545; /* Rojo para botón de peligro */
+}
+
+input[type="file"] {
+    width: 100%; /* Ancho completo para el selector de archivos */
+}
